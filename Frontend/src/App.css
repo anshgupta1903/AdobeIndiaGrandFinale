@@ -72,7 +72,9 @@ img {
   text-align: center;
   width: 100%; /* Ensure full width in sidebar */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-bottom: 0.75rem;
 }
+
 .action-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -700,7 +702,7 @@ img {
 /* Large devices (laptops/desktops, 1024px and up) */
 @media (min-width: 1024px) {
   .history-sidebar {
-    width: 320px;
+    width: 300px;
   }
   .history-sidebar.collapsed {
     width: 60px;
