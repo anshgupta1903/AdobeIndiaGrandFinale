@@ -10,7 +10,7 @@ const PdfViewer = ({ filePromise, fileName, pageNumber, onTextSelect }) => {
 
   useEffect(() => {
     if (isSdkReady && filePromise && viewerRef.current) {
-      const clientId = process.env.REACT_APP_ADOBE_CLIENT_ID;
+      const clientId = '567c5c63bf92461db01e4c378384df9d';
       if (!clientId) {
         console.error("Adobe Client ID is missing.");
         return;
