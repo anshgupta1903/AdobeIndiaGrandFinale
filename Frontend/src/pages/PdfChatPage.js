@@ -1155,7 +1155,7 @@ const PdfChatPage = ({ userToken }) => {
                     style={{
                       cursor: "pointer",
                       display: "inline-block",
-                      padding: "0.2rem 0.5rem",
+                      padding: "0.25rem 0.5rem",
                       fontSize: "0.8rem",
                       lineHeight: "1rem",
                       borderRadius: "50%",

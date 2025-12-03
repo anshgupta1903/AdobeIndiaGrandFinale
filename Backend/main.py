@@ -428,7 +428,7 @@ def text_to_speech_offline(text: str, output_filename: str):
 # React Static Files & Catch-all Route (MUST BE LAST)
 # ==============================================================================
 # This serves the static files for the React frontend
-app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
+app.mount("/static", StaticFiles(directory="../Frontend/build/static"), name="static")
 
 # This serves the user-uploaded session files (PDFs)
 app.mount("/session_files", StaticFiles(directory=SESSION_FILES_DIR), name="session_files")
