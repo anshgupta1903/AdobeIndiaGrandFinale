@@ -535,7 +535,7 @@
 //           content: "Analysis complete! Here are the key insights.",
 //         },
 //       ]);
-      
+
 //       // FIX: Increment the key to trigger a refresh in the sidebar
 //       setSessionUpdateKey(prevKey => prevKey + 1);
 
@@ -905,7 +905,7 @@ const PdfChatPage = ({ userToken }) => {
   const [isPersonaMinimized, setIsPersonaMinimized] = useState(false);
   const { currentTheme } = useTheme();
   const styles = getPdfChatStyles(currentTheme);
-  const [messages, setMessages] = useState([]); // FIX: Ensures setMessages is always declared
+  const [, setMessages] = useState([]); // FIX: Ensures setMessages is always declared
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [sessionId, setSessionId] = useState(null);
@@ -983,7 +983,7 @@ const PdfChatPage = ({ userToken }) => {
           content: "Analysis complete! Here are the key insights.",
         },
       ]);
-      
+
       // FIX: Increment the key to trigger a refresh in the sidebar
       setSessionUpdateKey(prevKey => prevKey + 1);
 
@@ -1099,7 +1099,7 @@ const PdfChatPage = ({ userToken }) => {
         activeSessionId={sessionId}
         userToken={userToken}
 
-        sessionUpdateKey={sessionUpdateKey} 
+        sessionUpdateKey={sessionUpdateKey}
 
       />
       <div className="main-content" style={styles.mainContent}>
@@ -1123,7 +1123,7 @@ const PdfChatPage = ({ userToken }) => {
         </div>
 
         <div className="chat-panel" style={styles.chatPanel}>
-           <div className="chat-controls" style={styles.chatControls}>
+          <div className="chat-controls" style={styles.chatControls}>
             <div className="pdf-list" style={styles.pdfList}>
               {pdfs.length === 0 ? (
                 <>
@@ -1290,7 +1290,7 @@ const PdfChatPage = ({ userToken }) => {
           </div>
 
           {!analysisResult ? (
-            <div className="placeholder-text" style={{...styles.placeholderText, flex: 1, display: 'flex', alignItems: 'center'}}>
+            <div className="placeholder-text" style={{ ...styles.placeholderText, flex: 1, display: 'flex', alignItems: 'center' }}>
               Upload documents and define your analysis goals to begin.
             </div>
           ) : (

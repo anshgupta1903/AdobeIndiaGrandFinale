@@ -47,6 +47,7 @@ const PdfViewer = ({ filePromise, fileName, pageNumber, onTextSelect }) => {
         });
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSdkReady, filePromise, fileName]);
 
   useEffect(() => {
@@ -59,15 +60,15 @@ const PdfViewer = ({ filePromise, fileName, pageNumber, onTextSelect }) => {
 
   const handleGetSelectedText = () => {
     if (apisRef.current) {
-        apisRef.current.getSelectedContent()
-            .then(result => {
-                if (result && result.type === 'text' && result.data) {
-                    onTextSelect(result.data);
-                } else {
-                    alert('No text selected. Please select some text in the PDF to get insights.');
-                }
-            })
-            .catch(error => console.error("Error getting selected content:", error));
+      apisRef.current.getSelectedContent()
+        .then(result => {
+          if (result && result.type === 'text' && result.data) {
+            onTextSelect(result.data);
+          } else {
+            alert('No text selected. Please select some text in the PDF to get insights.');
+          }
+        })
+        .catch(error => console.error("Error getting selected content:", error));
     }
   };
 
