@@ -13,10 +13,12 @@ This project comes with a set of powerful features designed to enhance the user'
 * **Multilingual Insights**: You can translate the generated insights into different languages, making the content more accessible.
 * **Bilingual Podcast Generation**: Listen to a summary or key points of your documents on the go! We offer a podcast feature that can generate audio in both **Hindi and English**. 🎧
 * **Instant Section Navigation**: Jump directly to the relevant section of the PDF from an extracted insight with a **single click**. This allows you to navigate to the exact source of information within the document in the blink of an eye. ⚡️
+* **Responsive**: works on both laptop and mobile
+
 
 ---
-#### REACT_APP_ADOBE_CLIENT_ID=567c5c63bf92461db01e4c378384df9d
-#### Place this api key in .env in forntend
+### REACT_APP_ADOBE_CLIENT_ID=567c5c63bf92461db01e4c378384df9d
+### Place this api key in .env in forntend
 
 ## How to Run This Project
 
@@ -38,7 +40,7 @@ Next, run the Docker container with the following command. This will start the a
 
 This command sets up the necessary environment variables for the application to connect to various services like Adobe PDF Embed API, Google's Gemini LLM, and Azure's Text-to-Speech service. It also mounts a volume for credentials.
 
-Bash
+
 
 #### docker run -v /path/to/credentials:/credentials \
 #### -e ADOBE_EMBED_API_KEY=<ADOBE_EMBED_API_KEY> \
@@ -74,13 +76,16 @@ If you prefer to run the project without Docker, you can follow these steps to s
 Backend Setup
 Navigate to the Backend Directory:
 
-Bash
+* Start the redis server on your wsl
+wsl --start redis
+redis-cli ping
 
+* Backend Setup
+Navigate to the Backend Directory:
 cd Backend
 Install Dependencies:
 It's recommended to use a virtual environment.
 
-Bash
 
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
@@ -88,9 +93,11 @@ pip install -r requirements.txt
 Set Environment Variables:
 You need to set the same environment variables as in the Docker command. You can do this by exporting them in your terminal session or by using a .env file and a library like python-dotenv.
 
-Bash
 
-export ADOBE_EMBED_API_KEY=your_adobe_api_key
+* in frontend/.env
+export ADOBE_EMBED_API_KEY=your_adobe_api_key 
+
+* in backend/.env
 export LLM_PROVIDER=gemini
 export GOOGLE_API_KEY=your_google_api_key
 export GEMINI_MODEL=gemini-2.5-flash
@@ -99,25 +106,23 @@ export AZURE_TTS_KEY=your_azure_tts_key
 export AZURE_TTS_ENDPOINT=your_azure_tts_endpoint
 Run the Backend Server:
 
-Bash
 
-python main.py
+uvicorn main:app --reload
 The backend will now be running, typically on a port like 8000.
 
 Frontend Setup
 Navigate to the Frontend Directory:
 
-Bash
+
 
 cd Frontend
 Install Dependencies:
 
-Bash
+
 
 npm install
 Start the Frontend Development Server:
 
-Bash
 
 npm start
 This will start the frontend application, and it should automatically open in your browser at http://localhost:3000. The frontend will connect to the backend service running on its specified port.
@@ -126,3 +131,6 @@ This will start the frontend application, and it should automatically open in yo
 
 # Video Link
 https://drive.google.com/file/d/1Y2YSUC6YJcj4YzXqSmBI_2V3LRWqdmI4/view?usp=sharing
+
+
+
